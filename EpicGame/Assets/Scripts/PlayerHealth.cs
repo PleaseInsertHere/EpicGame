@@ -4,6 +4,31 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    private float currentHealth = 0f;
+    [SerializeField] private float maxHealth = 10f;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
+   
+    public void UpdateHealth(float mod)
+    {
+        currentHealth += mod;
+
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else if(currentHealth <= 0f)
+        {
+            currentHealth = 0f;
+            Debug.Log("Potato died");
+        }
+    }
+   /*
+   
+   
     public int maxHealth = 10;
     public int currentHealth;
 
@@ -41,4 +66,5 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
+    */
 }

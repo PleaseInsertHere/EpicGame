@@ -10,6 +10,8 @@ public class AIChase : MonoBehaviour
 
     private float distance;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,4 +32,6 @@ public class AIChase : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
+
+
 }
