@@ -8,15 +8,24 @@ public class Health : MonoBehaviour
     public int currentHealth;
 
     public Animator anim;
-    // Start is called before the first frame update
+    
+    [SerializeField] HealthBar healthBar;
+
+    void awake()
+    {
+        healthBar = GetComponentInChildren<HealthBar>();
+    }
+
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
 
         if (currentHealth <= 0) ;
         {
