@@ -19,27 +19,32 @@ public class PlayerMove : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0 && faceLeft) {
+        if (Input.GetAxisRaw("Horizontal") > 0 && faceLeft)
+        {
             Flip();
             faceLeft = false;
         }
-        if (Input.GetAxisRaw("Horizontal") < 0 && !faceLeft) {
+        if (Input.GetAxisRaw("Horizontal") < 0 && !faceLeft)
+        {
             Flip();
             faceLeft = true;
         }
-        // Update is called once per frame
-        private void FixedUpdate()
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
         Dir.x = Input.GetAxisRaw("Horizontal");
         Dir.y = Input.GetAxisRaw("Vertical");
 
         rb.velocity = Spd * Dir;
-
-    private void Flip()
-        {
-            var theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-        }
     }
+            void Flip()
+            {
+                var theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
+        
+    
 }
