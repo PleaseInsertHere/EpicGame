@@ -288,7 +288,7 @@ CapsuleCollider2D:
   m_Direction: 0
 --- !u!82 &9085942
 AudioSource:
---- !u!114 &9085942
+--- !u!114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
