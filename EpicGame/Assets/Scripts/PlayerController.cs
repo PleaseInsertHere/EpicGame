@@ -80,5 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         // Game over logic, like showing a game over screen, resetting level, etc.
         Debug.Log("Player died!");
-    }
+        gameObject.SetActive(false); // For example, deactivate the player game object.
+    
+}
 }
