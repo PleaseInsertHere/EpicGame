@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             if (enemy.CompareTag("Enemy"))
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                enemy.GetComponent<EnemyEnemy>().TakeDamage(damage);
             }
         }
     }
