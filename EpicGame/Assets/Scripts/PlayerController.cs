@@ -83,4 +83,11 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(false); // For example, deactivate the player game object.
     
 }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("EnemyBullet")){
+            Destroy(gameObject);
+        }
+    }
+
 }
