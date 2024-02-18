@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 9085937}
   - component: {fileID: 9085941}
   - component: {fileID: 9085942}
-  - component: {fileID: 9085943}
   - component: {fileID: 9085944}
   m_Layer: 0
   m_Name: Player
@@ -503,19 +502,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9085943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9085936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d50c8b1ba70154ea88c0494f2e75e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!114 &9085944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,13 +516,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 8
+  healthSlider: {fileID: 1798321446}
   swords:
   - {fileID: 1627371976}
   - {fileID: 1255002664}
-  swordDamages: 0a0000000a000000
+  swordDamages: 3200000032000000
 --- !u!1 &117099394
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +693,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117099394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -9905,7 +9889,7 @@ GameObject:
   - component: {fileID: 661272511}
   m_Layer: 0
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10142,7 +10126,7 @@ GameObject:
   - component: {fileID: 1092744600}
   m_Layer: 0
   m_Name: GFX (2)
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10293,7 +10277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5.0199966, y: 0}
+  m_AnchoredPosition: {x: 5.0200195, y: 0}
   m_SizeDelta: {x: 20.03, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169939798
@@ -10347,7 +10331,7 @@ GameObject:
   - component: {fileID: 1255002667}
   m_Layer: 0
   m_Name: GFX (3)
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10451,7 +10435,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0071497466, y: -0.11468363}
+  m_Offset: {x: -0.0071497485, y: -0.111622915}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10462,7 +10446,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11637388, y: 0.77063274}
+  m_Size: {x: 0.11637388, y: 0.77675414}
   m_EdgeRadius: 0
 --- !u!1 &1534079579
 GameObject:
@@ -10475,7 +10459,7 @@ GameObject:
   - component: {fileID: 1534079580}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10557,7 +10541,7 @@ GameObject:
   - component: {fileID: 1627371979}
   m_Layer: 0
   m_Name: GFX (1)
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10661,7 +10645,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0043670386, y: -0.11684689}
+  m_Offset: {x: -0.0043670386, y: -0.112255126}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10672,7 +10656,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13115403, y: 0.7663062}
+  m_Size: {x: 0.13115403, y: 0.77548975}
   m_EdgeRadius: 0
 --- !u!1 &1798321444
 GameObject:
@@ -10700,16 +10684,16 @@ RectTransform:
   m_GameObject: {fileID: 1798321444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
+  m_LocalScale: {x: 1.9615115, y: 0.532983, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 962247406}
   - {fileID: 241186509}
   m_Father: {fileID: 1887044716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.41, y: 29.3}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 2, y: 33.72}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798321446
@@ -10759,7 +10743,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10851,7 +10835,7 @@ Canvas:
   m_GameObject: {fileID: 1887044715}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -11042,7 +11026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118746096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

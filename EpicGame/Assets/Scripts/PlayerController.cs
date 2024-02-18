@@ -1,64 +1,73 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public LayerMask enemyLayers;
+    public Slider healthSlider;
     public GameObject[] swords; // Array of sword GameObjects
     public int[] swordDamages; // Array of sword damages
 
-    private bool isAttacking = false;
+    private bool isAttacking = true; // Changed to always attack
 
     void Start()
     {
         currentHealth = maxHealth;
+        UpdateHealthBar();
     }
+    void UpdateHealthBar()
+    {
+        healthSlider.value = (float)currentHealth / maxHealth; // Update the value based on currentHealth
+    }
+    
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
+        if (isAttacking)
         {
-            isAttacking = true;
             Attack();
         }
     }
 
     void Attack()
     {
-        // Play attack animation or sound if needed
-
         // Loop through each sword
         for (int i = 0; i < swords.Length; i++)
         {
             GameObject sword = swords[i];
             int damage = swordDamages[i];
 
-            // Detect enemies hit by current sword
-            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(sword.transform.position, sword.GetComponent<BoxCollider2D>().size, 0, enemyLayers);
+            // Check collisions with enemies
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(sword.transform.position, sword.GetComponent<BoxCollider2D>().size, 0);
             DamageEnemies(hitEnemies, damage);
+
+            // Debug if enemies are in contact with the sword
+            if (hitEnemies.Length > 0)
+            {
+                //Debug.Log("Sword " + i + " is in contact with an enemy!");
+            }
         }
-
-        // Set cooldown or animation delay
-        Invoke("ResetAttack", 0.5f);
-    }
-
-    void ResetAttack()
-    {
-        isAttacking = false;
     }
 
     void DamageEnemies(Collider2D[] enemies, int damage)
     {
         foreach (Collider2D enemy in enemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(damage);
+            if (enemy.CompareTag("Enemy"))
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
         }
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+         currentHealth -= damage;
+         Debug.Log(currentHealth);
+         Debug.Log(damage);
+         currentHealth = Mathf.Max(currentHealth, 0);
+         UpdateHealthBar(); // Update the health bar after taking damage
 
         // Check if player dies
         if (currentHealth <= 0)
