@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomSpawner : MonoBehaviour
 {
 
-    public GameObject Siena;
+    public GameObject Enemy;
     public float Radius = 1;
     
     void Update()
@@ -17,7 +17,7 @@ public class RandomSpawner : MonoBehaviour
     {
         Vector3 randomPos = Random.insideUnitCircle * Radius;
 
-        Instantiate(Siena, randomPos, Quaternion.identity);
+        Instantiate(Enemy, randomPos, Quaternion.identity);
     }
 
     private void OnDrawGizmos()

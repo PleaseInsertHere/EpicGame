@@ -10,15 +10,6 @@ public class AIChase : MonoBehaviour
 
     private float distance;
 
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
@@ -32,6 +23,4 @@ public class AIChase : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
-
-
 }
