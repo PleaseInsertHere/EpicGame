@@ -6,25 +6,17 @@ public class Enemy : MonoBehaviour
     public int currentHealth;
     public int touchDamage = 10;
 
-    [SerializeField] private EnemyHealthBar healthBar;
-
     private void Awake()
     {
-        // Ensure that EnemyHealthBar component is assigned
-        if (healthBar == null)
-        {
-            Debug.LogError("EnemyHealthBar is not assigned to the Enemy script.", this);
-            return;
-        }
 
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
-        currentHealth = maxHealth;
+        currentHealth = maxHealth; // Set currentHealth after healthBar is initialized
+
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
+
         Debug.Log("Enemy takes " + damage + " damage.");
 
         // Check if enemy dies
@@ -34,13 +26,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
         // Death animation or sound, or any other death logic
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
