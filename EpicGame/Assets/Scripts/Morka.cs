@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Morka : MonoBehaviour
 {
-    private float morkosSpeed =  4f;
+    private float morkosSpeed =  6f;
     private Rigidbody2D rb;
     private Vector2 lastVelocity;
 

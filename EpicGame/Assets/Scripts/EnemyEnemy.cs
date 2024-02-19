@@ -1,29 +1,44 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyEnemy : MonoBehaviour
 {
     public int maxHealth = 50;
     public int currentHealth;
     public int touchDamage = 10;
+    private bool canTakeDamage = true;
+    private float damageCooldown = 1f;
 
     private void Awake()
     {
-
         currentHealth = maxHealth; // Set currentHealth after healthBar is initialized
-
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        Debug.Log("Enemy takes " + damage + " damage.");
-
-        // Check if enemy dies
-        if (currentHealth <= 0)
+        if (canTakeDamage)
         {
-            Die();
+            currentHealth -= damage;
+
+            Debug.Log("Enemy takes " + damage + " damage.");
+
+            // Check if enemy dies
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                StartCoroutine(DamageCooldown());
+            }
         }
+    }
+
+    private IEnumerator DamageCooldown()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(damageCooldown);
+        canTakeDamage = true;
     }
 
     private void Die()
