@@ -8,6 +8,7 @@ TagManager:
   - PlayerSword
   - Bullet
   - Wall
+  - WaveSpawner
   layers:
   - Default
   - TransparentFX

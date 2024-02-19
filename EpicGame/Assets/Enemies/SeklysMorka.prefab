@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4114629585684466189}
   - component: {fileID: 8267101627864655170}
   - component: {fileID: 4886579010874949293}
+  - component: {fileID: -3198022898820559669}
   m_Layer: 3
   m_Name: SeklysMorka
   m_TagString: Enemy
@@ -124,7 +125,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6439283268621256715}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 1
@@ -190,4 +191,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b8e769ca7a6e74ebc2cca49541731c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morkosSpeed: 3
+--- !u!114 &-3198022898820559669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439283268621256715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fccfc62e723a34ca11f7df523f8b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

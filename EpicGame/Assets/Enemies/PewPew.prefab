@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4339018755182611742}
   - component: {fileID: 2572935876672830738}
   - component: {fileID: 4041025874854196158}
+  - component: {fileID: 8814375740813172084}
   m_Layer: 3
   m_Name: PewPew
   m_TagString: Enemy
@@ -187,6 +188,18 @@ MonoBehaviour:
   distanceToStop: 5
   fireRate: 0.5
   firingPoint: {fileID: 7138523310384386919}
+--- !u!114 &8814375740813172084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573302339027640868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fccfc62e723a34ca11f7df523f8b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8834937284361424956
 GameObject:
   m_ObjectHideFlags: 0
