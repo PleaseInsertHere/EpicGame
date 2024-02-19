@@ -1,40 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    public float speed;
+    [Range(1, 10)]
+    [SerializeField] private float speed = 10f;
 
-    private Transform player;
-    private Vector2 target;
+   // [Range(1, 10)]
+   // [SerializeField] private float lifetime = 3f;
 
-    void Start()
+    public int damage = 10; // Damage inflicted by this bullet
+
+    private Rigidbody2D rb; // Declare Rigidbody2D field
+
+    private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y);
+        rb = GetComponent<Rigidbody2D>(); // Assign the Rigidbody2D component
+    //    Destroy(gameObject /*, lifetime*/);
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        if (transform.position.x == target.x && transform.position.y == target.y)
-        {
-           // DestroyProjectile();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            DestroyProjectile();
-        }
-    }
-
-    void DestroyProjectile()
-    {
-        Destroy(gameObject);
+        rb.velocity = transform.up * speed; // Fix the spelling of velocity
     }
 }

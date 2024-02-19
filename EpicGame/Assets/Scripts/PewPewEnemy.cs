@@ -72,17 +72,17 @@ public class PewPewEnemy: MonoBehaviour
                 target = GameObject.FindGameObjectWithTag("Player").transform;
         }
         }
-        private void OnCollisionEnter2D(Collision2D other){ 
+      /*  private void OnCollisionEnter2D(Collision2D other){ 
             if (other.gameObject.CompareTag("Bullet")){
                 Destroy(other.gameObject);
                 target = null;
             }
-            else if (other.gameObject.CompareTag("Bullet")){
+           /* else if (other.gameObject.CompareTag("Bullet")){
                 Destroy(other.gameObject);
                 Destroy(gameObject);
-            }
+            }*/
         }
-}
+
 
 
     

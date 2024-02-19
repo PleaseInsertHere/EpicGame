@@ -83,11 +83,21 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(false); // For example, deactivate the player game object.
     
 }
-    private void OnCollisionEnter2D(Collision2D other)
+private void OnCollisionEnter2D(Collision2D other)
+{
+    if (other.gameObject.CompareTag("Bullet"))
     {
-        if (other.gameObject.CompareTag("EnemyBullet")){
-            Destroy(gameObject);
+        // Access the collider component of the bullet object
+        Collider2D bulletCollider = other.collider;
+
+        // Get the damage value from the bullet's collider object
+        Bullet bullet = bulletCollider.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            TakeDamage(bullet.damage);
         }
     }
-
 }
+}
+
+
